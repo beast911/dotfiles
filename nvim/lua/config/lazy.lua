@@ -8,26 +8,18 @@ vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 
 require("lazy").setup({
 	spec = {
+    { "savq/melange-nvim", priority = 1000 },
 		{ 
       "catppuccin/nvim",
       name = "catppuccin",
       priority = 1000,
-      config = function()
-        require("catppuccin").setup {}
-      end
     },
     {
      "neanias/everforest-nvim",
      version = false,
      lazy = false,
      priority = 1000, -- make sure to load this before all the other start plugins
-     -- Optional; default configuration will be used if setup isn't called.
-     config = function()
-       require("everforest").setup({
-         -- Your config here
-       })
-     end,
-},
+    },
 		{ "cpea2506/one_monokai.nvim", name = "monokai", priority = 1000 },
 		{ "ellisonleao/gruvbox.nvim", priority = 1000 },
 		{ 
@@ -36,6 +28,10 @@ require("lazy").setup({
       config = function()
         require("kanagawa").setup {}
       end
+    },
+    {
+      "navarasu/onedark.nvim",
+      priority = 1000,
     },
     {
       "folke/tokyonight.nvim",

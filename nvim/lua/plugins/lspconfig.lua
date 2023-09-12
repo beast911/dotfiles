@@ -44,7 +44,9 @@ return {
                 group = augroup,
                 buffer = bufnr,
                 callback = function()
-                    lsp_formatting(bufnr)
+                    -- vim.lsp.buf.formatting_sync()
+                    vim.lsp.buf.format({ async = false })
+                    -- lsp_formatting(bufnr)
                 end,
             })
         end
@@ -91,6 +93,7 @@ return {
 
 
       local lspconfig = require('lspconfig')
+      lspconfig.lua_ls.setup {}
       lspconfig.tsserver.setup {
         on_attach = M.on_attach,
         capabilities = M.capabilities,

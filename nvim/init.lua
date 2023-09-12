@@ -60,5 +60,5 @@ require("config.lazy")
 require("config.telescope")
 -- themeing --
 vim.g.everforest_diagnostic_line_highlight=1
-vim.cmd("colorscheme kanagawa")
+vim.cmd("colorscheme gruvbox")
 
