@@ -2,6 +2,11 @@ local keymap = require("config.keymaps").map
 return {
 	{
     "neovim/nvim-lspconfig",
+    dependencies = {
+      {
+        "lukas-reineke/lsp-format.nvim"
+      }
+    },
     config = function()
       local lsp_formatting = function(bufnr)
         vim.lsp.buf.format({
@@ -38,18 +43,19 @@ return {
       }
 
       M.on_attach = function(client, bufnr)
-        if client.supports_method("textDocument/formatting") then
-            vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-            vim.api.nvim_create_autocmd("BufWritePre", {
-                group = augroup,
-                buffer = bufnr,
-                callback = function()
-                    -- vim.lsp.buf.formatting_sync()
-                    vim.lsp.buf.format({ async = false })
-                    -- lsp_formatting(bufnr)
-                end,
-            })
-        end
+      --  if client.supports_method("textDocument/formatting") then
+      --      vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+      --      vim.api.nvim_create_autocmd("BufWritePre", {
+      --          group = augroup,
+      --          buffer = bufnr,
+      --          callback = function()
+      --              -- vim.lsp.buf.formatting_sync()
+      --              vim.lsp.buf.format({ async = false })
+      --              -- lsp_formatting(bufnr)
+      --          end,
+      --      })
+      --  end
+        require("lsp-format").on_attach(client, bufnr)
       end
 
       -- Global mappings.
@@ -93,7 +99,9 @@ return {
 
 
       local lspconfig = require('lspconfig')
-      lspconfig.lua_ls.setup {}
+      lspconfig.lua_ls.setup {
+        on_attach = M.on_attach
+      }
       lspconfig.tsserver.setup {
         on_attach = M.on_attach,
         capabilities = M.capabilities,

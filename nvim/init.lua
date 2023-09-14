@@ -59,6 +59,5 @@ require("config.keymaps")
 require("config.lazy")
 require("config.telescope")
 -- themeing --
-vim.g.everforest_diagnostic_line_highlight=1
-vim.cmd("colorscheme midnight")
-
+vim.g.everforest_diagnostic_line_highlight = 1
+vim.cmd("colorscheme sonokai")
