@@ -59,5 +59,7 @@ require("config.keymaps")
 require("config.lazy")
 require("config.telescope")
 -- themeing --
+vim.g.sonokai_style = 'shusia'
+vim.g.sonokai_better_performance = 1
 vim.g.everforest_diagnostic_line_highlight = 1
 vim.cmd("colorscheme sonokai")
