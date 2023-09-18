@@ -10,42 +10,18 @@ vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 require("lazy").setup({
   spec = {
     {
-      "sainnhe/sonokai",
-      priority = 1000
-    },
-    {
-      "rockyzhang24/arctic.nvim",
-      dependencies = { "rktjmp/lush.nvim" },
-      name = "arctic",
-      branch = "main",
-      priority = 1000,
-    },
-    { 'projekt0n/github-nvim-theme' },
-    { "bluz71/vim-moonfly-colors",  name = "moonfly", lazy = false, priority = 1000 },
-    { "savq/melange-nvim",          priority = 1000 },
-    {
-      "catppuccin/nvim",
-      name = "catppuccin",
-      priority = 1000,
-    },
-    {
       "neanias/everforest-nvim",
       version = false,
       lazy = false,
       priority = 1000, -- make sure to load this before all the other start plugins
     },
-    { 'dasupradyumna/midnight.nvim', lazy = false,     priority = 1000 },
-    { "cpea2506/one_monokai.nvim",   name = "monokai", priority = 1000 },
-    { "ellisonleao/gruvbox.nvim",    priority = 1000 },
     {
-      "rebelot/kanagawa.nvim",
-      name = "kanagawa",
-      config = function()
-        require("kanagawa").setup {}
-      end
+      "sainnhe/sonokai",
+      priority = 1000
     },
     {
-      "navarasu/onedark.nvim",
+      "catppuccin/nvim",
+      name = "catppuccin",
       priority = 1000,
     },
     {

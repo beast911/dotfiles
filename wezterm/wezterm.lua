@@ -13,7 +13,7 @@ end
 -- This is where you actually apply your config choices
 
 -- For example, changing the color scheme:
-config.color_scheme = 'Earthsong'
+config.color_scheme = '3024 (dark) (terminal.sexy)'
 config.font_size = 16.0
 -- and finally, return the configuration to wezterm
 return config
