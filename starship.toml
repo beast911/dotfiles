@@ -1,0 +1,27 @@
+# Disable the package module, hiding it from the prompt completely
+[nodejs]
+disabled=true
+
+[lua]
+disabled=true
+
+[git_state]
+disabled=true
+
+[git_metrics]
+disabled=true
+
+[git_status]
+disabled=true
+
+[ocaml]
+disabled=true
+
+[java]
+disabled=true
+
+[perl]
+disabled=true
+
+[php]
+disabled=true
