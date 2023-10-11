@@ -10,6 +10,10 @@ vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 require("lazy").setup({
   spec = {
     {
+      "Shatur/neovim-ayu",
+      priority = 1000
+    },
+    {
       "neanias/everforest-nvim",
       version = false,
       lazy = false,
