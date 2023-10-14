@@ -73,10 +73,7 @@ require("lazy").setup({
 					end,
 					sidebars = { "qf", "vista_kind", "terminal", "packer" },
 					-- Change the "hint" color to the "orange" color, and make the "error" color bright red
-					on_colors = function(colors)
-						colors.bg = "#000000"
-					end,
-				})
+			})
 			end,
 		},
 		{ import = "plugins" },
