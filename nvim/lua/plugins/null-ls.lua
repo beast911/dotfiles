@@ -1,3 +1,34 @@
+local async_formatting = function(bufnr)
+	opts = opts or {}
+	opts.silent = opts.silent ~= false
+	if opts.remap and not vim.g.vscode then
+		opts.remap = nil
+	end
+	vim.keymap.set(mode, lhs, rhs, opts)
+end
+
+-- modes n, x, i, v
+
+vim.keymap.set("n", "gf", function()
+	if require("obsidian").util.cursor_on_markdown_link() then
+		return "<cmd>ObsidianFollowLink<CR>"
+	else
+		return "gf"
+		if not vim.api.nvim_buf_is_loaded(bufnr) or vim.api.nvim_buf_get_option(bufnr, "modified") then
+				return
+			end
+
+			if res then
+				local client = vim.lsp.get_client_by_id(ctx.client_id)
+				vim.lsp.util.apply_text_edits(res, bufnr, client and client.offset_encoding or "utf-16")
+				vim.api.nvim_buf_call(bufnr, function()
+					vim.cmd("silent noautocmd update")
+				end)
+			end
+		end
+	)
+end
+
 return {
 	"jose-elias-alvarez/null-ls.nvim",
 	event = { "BufReadPre", "BufNewFile" },
@@ -20,12 +51,11 @@ return {
 				},
 			}),
 			formatting.stylua,
-
-			lint.shellcheck,
+			-- lint.shellcheck,
 		}
 
 		null_ls.setup({
-			debug = true,
+			debug = false,
 			sources = sources,
 			on_attach = function(client, bufnr)
 				if client.supports_method("textDocument/formatting") then
@@ -35,11 +65,12 @@ return {
 
 					-- format on save
 					vim.api.nvim_clear_autocmds({ buffer = bufnr, group = group })
-					vim.api.nvim_create_autocmd(event, {
+					vim.api.nvim_create_autocmd("BufWritePost", {
 						buffer = bufnr,
 						group = group,
 						callback = function()
-							vim.lsp.buf.format({ bufnr = bufnr, async = async })
+							async_formatting(bufnr)
+							-- vim.lsp.buf.format({ bufnr = bufnr, async = async, timeout_ms = 2000 })
 						end,
 						desc = "[lsp] format on save",
 					})
