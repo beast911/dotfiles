@@ -8,16 +8,6 @@ return {
       },
     },
     config = function()
-      local lsp_formatting = function(bufnr)
-        vim.lsp.buf.format({
-          filter = function(client)
-            -- apply whatever logic you want (in this example, we'll only use null-ls)
-            return client.name == "null-ls"
-          end,
-          bufnr = bufnr,
-        })
-      end
-
       local M = {}
       M.capabilities = vim.lsp.protocol.make_client_capabilities()
 
@@ -38,19 +28,6 @@ return {
           },
         },
       }
-
-      M.on_attach = function(client, bufnr)
-        if client.supports_method("textDocument/formatting") then
-          vim.api.nvim_create_autocmd("BufWritePre", {
-            callback = function()
-              -- vim.lsp.buf.formatting_sync()
-              -- vim.lsp.buf.format({ async = false })
-              lsp_formatting(bufnr)
-            end,
-          })
-        end
-        -- require("lsp-format").on_attach(client, bufnr)
-      end
 
       -- Global mappings.
       -- See `:help vim.diagnostic.*` for documentation on any of the below functions

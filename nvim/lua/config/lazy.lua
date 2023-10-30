@@ -10,71 +10,9 @@ vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 require("lazy").setup({
 	spec = {
 		{
-			"Shatur/neovim-ayu",
-			priority = 1000,
-		},
-		{
-			"neanias/everforest-nvim",
-			version = false,
-			lazy = false,
-			priority = 1000, -- make sure to load this before all the other start plugins
-		},
-		{
-			"sainnhe/sonokai",
-			priority = 1000,
-		},
-		{
 			"catppuccin/nvim",
 			name = "catppuccin",
 			priority = 1000,
-		},
-		{
-			"folke/tokyonight.nvim",
-			lazy = false,
-			priority = 1000,
-			opts = {},
-			config = function()
-				require("tokyonight").setup({
-					-- use the night style
-					style = "night",
-					-- disable italic for functions
-					styles = {
-						functions = {},
-					},
-					on_highlights = function(hl, c)
-						local prompt = "#2d3149"
-						hl.TelescopeNormal = {
-							bg = c.bg_dark,
-							fg = c.fg_dark,
-						}
-						hl.TelescopeBorder = {
-							bg = c.bg_dark,
-							fg = c.bg_dark,
-						}
-						hl.TelescopePromptNormal = {
-							bg = prompt,
-						}
-						hl.TelescopePromptBorder = {
-							bg = prompt,
-							fg = prompt,
-						}
-						hl.TelescopePromptTitle = {
-							bg = prompt,
-							fg = prompt,
-						}
-						hl.TelescopePreviewTitle = {
-							bg = c.bg_dark,
-							fg = c.bg_dark,
-						}
-						hl.TelescopeResultsTitle = {
-							bg = c.bg_dark,
-							fg = c.bg_dark,
-						}
-					end,
-					sidebars = { "qf", "vista_kind", "terminal", "packer" },
-					-- Change the "hint" color to the "orange" color, and make the "error" color bright red
-			})
-			end,
 		},
 		{ import = "plugins" },
 	},
@@ -87,16 +25,16 @@ require("lazy").setup({
 		version = false, -- always use the latest git commit
 		-- version = "*", -- try installing the latest stable version for plugins that support semver
 	},
-	install = { colorscheme = { "catppuccin", "tokyonight", "habamax", "monokai" } },
+	install = { colorscheme = { "catppuccin" } },
 	checker = { enabled = true }, -- automatically check for plugin updates
 	performance = {
 		rtp = {
 			-- disable some rtp plugins
 			disabled_plugins = {
 				"gzip",
-				-- "matchit",
-				-- "matchparen",
-				-- "netrwPlugin",
+				"matchit",
+				"matchparen",
+				"netrwPlugin",
 				"tarPlugin",
 				"tohtml",
 				"tutor",
