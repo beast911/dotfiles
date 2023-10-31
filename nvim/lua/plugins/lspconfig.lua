@@ -71,7 +71,6 @@ return {
 			lspconfig.lua_ls.setup({})
 			lspconfig.tsserver.setup({
 				capabilities = M.capabilities,
-
 				settings = {
 					Lua = {
 						diagnostics = {
