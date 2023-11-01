@@ -19,7 +19,7 @@ return {
       "javascript",
       "jsdoc",
       "json",
-      --"lua",
+      "lua",
       --"luadoc",
       --"luap",
       "markdown",

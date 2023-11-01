@@ -37,7 +37,6 @@ opt.splitright = true
 opt.termguicolors = true
 opt.timeoutlen = 400
 opt.undofile = true
-
 -- interval for writing swap file to disk, also used by gitsigns
 opt.updatetime = 250
 
@@ -62,4 +61,4 @@ require("config.telescope")
 vim.g.sonokai_style = "shusia"
 vim.g.sonokai_better_performance = 1
 vim.g.everforest_diagnostic_line_highlight = 1
-vim.cmd("colorscheme catppuccin")
+-- vim.cmd("colorscheme gruvbox")
