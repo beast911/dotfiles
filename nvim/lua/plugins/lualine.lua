@@ -4,7 +4,7 @@ return {
 	opts = function()
 		return {
 			options = {
-				theme = "catppuccin",
+				theme = "kanagawa",
 				globalstatus = true,
 				disabled_filetypes = { statusline = { "dashboard", "alpha" } },
 			},

@@ -11,13 +11,21 @@ require("lazy").setup({
 	spec = {
 		{ "ellisonleao/gruvbox.nvim", name = "gruvbox", priority = 1000 },
 		{
+			"rebelot/kanagawa.nvim",
+			name = "kanagawa",
+			priority = 1000,
+			lazy = false,
+			config = function()
+				require("kanagawa").load("wave")
+			end,
+		},
+		{
 			"catppuccin/nvim",
 			name = "catppuccin",
 			priority = 1000,
 			lazy = false,
 			config = function()
 				require("catppuccin").setup()
-				vim.cmd("colorscheme catppuccin-mocha")
 			end,
 		},
 		{ import = "plugins" },
@@ -31,7 +39,7 @@ require("lazy").setup({
 		version = false, -- always use the latest git commit
 		-- version = "*", -- try installing the latest stable version for plugins that support semver
 	},
-	install = { colorscheme = { "catppuccin", "gruvbox" } },
+	install = { colorscheme = { "catppuccin", "gruvbox", "kanagawa" } },
 	checker = { enabled = true }, -- automatically check for plugin updates
 	performance = {
 		rtp = {
