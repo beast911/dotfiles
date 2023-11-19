@@ -4,6 +4,13 @@ return {
 	event = "InsertEnter",
 	dependencies = {
 		{
+			{
+				"jakewvincent/mkdnflow.nvim",
+				-- dependencies = "luautf8", -- Ensures optional luautf8 dependency is installed
+				config = function()
+					require("mkdnflow").setup()
+				end,
+			},
 			"L3MON4D3/LuaSnip",
 			dependencies = "rafamadriz/friendly-snippets",
 			opts = { history = true, updates = "TextChanged,TextChangedI" },
@@ -76,6 +83,7 @@ return {
 				{ name = "luasnip" },
 				{ name = "buffer" },
 				{ name = "path" },
+				{ name = "mkdnflow" },
 			}),
 			experimental = {
 				ghost_text = {
