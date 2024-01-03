@@ -15,6 +15,6 @@ end
 -- For example, changing the color scheme:
 config.color_scheme = "Catppuccin Mocha (Gogh)"
 config.font_size = 16.0
-config.font = wezterm.font("JetBrains Mono", {})
+config.font = wezterm.font("JetBrains Mono", { weight = "Bold" })
 -- and finally, return the configuration to wezterm
 return config
