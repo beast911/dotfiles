@@ -9,6 +9,7 @@ vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 
 require("lazy").setup({
 	spec = {
+		{ "Mofiqul/dracula.nvim" },
 		{ "ellisonleao/gruvbox.nvim", name = "gruvbox", priority = 1000 },
 		--	{
 		--		"rebelot/kanagawa.nvim",
@@ -30,10 +31,12 @@ require("lazy").setup({
 			name = "catppuccin",
 			priority = 1000,
 			lazy = false,
-			config = function()
-				require("catppuccin").setup()
-				vim.cmd.colorscheme("catppuccin-mocha")
-			end,
+		},
+		{
+			"folke/tokyonight.nvim",
+			lazy = false,
+			priority = 1000,
+			opts = {},
 		},
 		{ import = "plugins" },
 	},

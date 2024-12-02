@@ -16,7 +16,7 @@ return {
 		local sources = {
 			formatting.prettier.with({
 				env = {
-					PRETTIERD_DEFAULT_CONFIG = vim.fn.expand("~/git_clones/flights/frontend/.prettierrc"),
+					PRETTIERD_DEFAULT_CONFIG = vim.fn.expand("~/workspace/main/frontend/.prettierrc"),
 				},
 			}),
 			formatting.stylua,
