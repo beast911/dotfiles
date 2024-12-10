@@ -71,8 +71,6 @@ return {
 			require("lspconfig").terraformls.setup({})
 			require("lspconfig").tflint.setup({})
 			lspconfig.lua_ls.setup({})
-			require("java").setup()
-			require("lspconfig").jdtls.setup({})
 			lspconfig.ts_ls.setup({
 				capabilities = M.capabilities,
 				settings = {
