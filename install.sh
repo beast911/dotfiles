@@ -27,3 +27,8 @@ cp -r ~/dotfiles/nvim/ ~/.config
 # setup starship
 curl -sS https://starship.rs/install.sh | sh
 cp ~/dotfiles/starship.toml ~/.config
+
+# install bash autocompletions
+git clone --recursive --depth 1 --shallow-submodules https://github.com/akinomyoga/ble.sh.git
+make -C ble.sh install PREFIX=~/.local
+echo 'source ~/.local/share/blesh/ble.sh' >> ~/.bashrc
